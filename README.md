@@ -1,17 +1,14 @@
 # NCalc
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ncalc/ncalc/build-test.yml)
-[![Coverage](https://img.shields.io/codecov/c/github/ncalc/ncalc.svg)](https://codecov.io/gh/ncalc/ncalc)
-[![NuGet](https://img.shields.io/nuget/v/NCalcSync.signed.svg?label=nuget&color=004880
-)](https://nuget.org/packages/NCalcSync.signed)
-![NuGet Downloads](https://img.shields.io/nuget/dt/NCalcSync.svg?color=004880)
-[![Discord](https://img.shields.io/discord/1237181265426387005?color=5b62ef&label=discord
-)](https://discord.gg/TeJkmXbqFk)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/tech-software/ncalc/build-test.yml)
+[![Coverage](https://img.shields.io/codecov/c/github/tech-software/ncalc.svg)](https://codecov.io/gh/ncalc/ncalc)
+
+This is the Tech Software fork of NCalc. It exists to allow callers to opt-in to pre-v5.1 handling of the + operator as meaning string concatenation if the left-hand value is a string.
 
 NCalc is a fast and lightweight expression evaluator library for .NET, designed for flexibility and high performance. It supports a wide range of mathematical and logical operations. NCalc can parse any expression and evaluate the result, including static or dynamic parameters and custom functions. NCalc targets .NET 8, .NET Standard 2.0 and NET Framework 4.8.
 
 ## Docs
-Need help or want to learn more? [Check our docs.](https://ncalc.github.io/ncalc)
+Need help or want to learn more? [Check the team's docs.](https://ncalc.github.io/ncalc)
 
 
 ## Learn more
