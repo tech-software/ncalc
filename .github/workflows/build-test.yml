@@ -3,11 +3,11 @@ name: Build & Test
 on:
   push:
     branches:
-      - master
+      - techsoftware
       - release/*
   pull_request:
     branches:
-      - master
+      - techsoftware
       - release/*
 
 jobs:
