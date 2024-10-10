@@ -19,7 +19,15 @@ public static class EvaluationHelper
     public static object? Plus(object? leftValue, object? rightValue, ExpressionContextBase context)
     {
         if (context.Options.HasFlag(ExpressionOptions.StringConcat))
+        {
             return string.Concat(leftValue, rightValue);
+        }
+
+        if (context.Options.HasFlag(ExpressionOptions.UseOldStringConcatBehavior) &&
+            leftValue is string)
+        {
+            return string.Concat(leftValue, rightValue);
+        }
 
         if (context.Options.HasFlag(ExpressionOptions.NoStringTypeCoercion) &&
             (leftValue is string || rightValue is string))

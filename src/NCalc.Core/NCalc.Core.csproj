@@ -4,7 +4,7 @@
         <TargetFrameworks>net462;netstandard2.0;net6.0;net8.0</TargetFrameworks>
         <LangVersion>12</LangVersion>
         <Nullable>enable</Nullable>
-        <PackageId>NCalc.Core</PackageId>
+        <PackageId>TSNCalc.Core</PackageId>
         <AssemblyName>NCalc.Core</AssemblyName>
         <Description>Assembly with the core logic of NCalc.</Description>
         <SignAssembly>true</SignAssembly>

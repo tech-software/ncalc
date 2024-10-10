@@ -21,6 +21,8 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
+    - name: Configure NuGet
+      run: dotnet nuget add source https://nuget.pkg.github.com/tech-software/index.json --name github --username tech-software --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -29,15 +31,12 @@ jobs:
       run: dotnet test -c Release --no-build --verbosity normal
     - name: Pack unsigned
       run: dotnet pack -c Release --no-build -p:PublicRelease=true
-    - name: Pack signed
-      run: dotnet pack -c SignedRelease -p:PublicRelease=true
     - name: Publish packages
       run: |
-          dotnet nuget push src/NCalc.Core/bin/Release/NCalc.Core*.nupkg --api-key "${{ secrets.NUGET_NCALC_PLUGINS_API_TOKEN }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-          dotnet nuget push src/NCalc.Sync/bin/Release/NCalcSync*.nupkg --api-key "${{ secrets.NUGET_NCALC_SYNC_API_TOKEN }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-          dotnet nuget push src/NCalc.Sync/bin/SignedRelease/NCalcSync*.nupkg --api-key "${{ secrets.NUGET_NCALC_SYNC_API_TOKEN }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-          dotnet nuget push src/NCalc.Async/bin/Release/NCalcAsync*.nupkg --api-key "${{ secrets.NUGET_NCALC_PLUGINS_API_TOKEN }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-          dotnet nuget push src/NCalc.DependencyInjection/bin/Release/NCalc.DependencyInjection*.nupkg --api-key "${{ secrets.NUGET_NCALC_PLUGINS_API_TOKEN }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-          dotnet nuget push src/Plugins/NCalc.MemoryCache/bin/Release/NCalc.MemoryCache*.nupkg --api-key "${{ secrets.NUGET_NCALC_PLUGINS_API_TOKEN }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-          dotnet nuget push src/Plugins/NCalc.Antlr/bin/Release/NCalc.Antlr*.nupkg --api-key "${{ secrets.NUGET_NCALC_PLUGINS_API_TOKEN }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+          dotnet nuget push src/NCalc.Core/bin/Release/TSNCalc.Core*.nupkg --api-key "${{ secrets.GITHUB_TOKEN }}" --source github --skip-duplicate
+          dotnet nuget push src/NCalc.Sync/bin/Release/TSNCalcSync*.nupkg --api-key "${{ secrets.GITHUB_TOKEN }}" --source github --skip-duplicate
+          # dotnet nuget push src/NCalc.Async/bin/Release/NCalcAsync*.nupkg --api-key "${{ secrets.GITHUB_TOKEN }}" --source github --skip-duplicate
+          # dotnet nuget push src/NCalc.DependencyInjection/bin/Release/NCalc.DependencyInjection*.nupkg --api-key "${{ secrets.GITHUB_TOKEN }}" --source github --skip-duplicate
+          # dotnet nuget push src/Plugins/NCalc.MemoryCache/bin/Release/NCalc.MemoryCache*.nupkg --api-key "${{ secrets.GITHUB_TOKEN }}" --source github --skip-duplicate
+          # dotnet nuget push src/Plugins/NCalc.Antlr/bin/Release/NCalc.Antlr*.nupkg --api-key "${{ secrets.GITHUB_TOKEN }}" --source github --skip-duplicate
 

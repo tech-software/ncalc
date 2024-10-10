@@ -79,5 +79,14 @@ public enum ExpressionOptions
     /// <summary>
     /// Return the value instead of throwing an exception when the expression is null or empty.
     /// </summary>
-    AllowNullOrEmptyExpressions = 1 << 14
+    AllowNullOrEmptyExpressions = 1 << 14,
+
+    /// <summary>
+    /// Use the pre-NCalc 5.1 behavior for string concatenation.
+    /// </summary>
+    /// <remarks>
+    /// <p>If the left value is a string, the result of + will be string concatenation.
+    /// Otherwise both parameters will be converted to numeric if needed and possible.</p>
+    /// </remarks>
+    UseOldStringConcatBehavior = 1 << 31,
 }

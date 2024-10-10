@@ -30,7 +30,7 @@
     <!-- Unsigned Assembly Configuration -->
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' Or '$(Configuration)' == 'Release' ">
         <AssemblyName>NCalc.Sync</AssemblyName>
-        <PackageId>NCalcSync</PackageId>
+        <PackageId>TSNCalcSync</PackageId>
         <Description>NCalc is a fast and lightweight expression evaluator library for .NET, designed for flexibility and high performance. It supports a wide range of mathematical and logical operations. NCalc can parse any expression and evaluate the result, including static or dynamic parameters and custom functions. This package contains the unsigned assembly 'NCalc'. For the stronly signed assembly version of 'NCalc', see the NCalcSync.signed package.</Description>
     </PropertyGroup>
 
